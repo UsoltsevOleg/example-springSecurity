@@ -20,6 +20,6 @@ public class TokenController {
     public ResponseEntity<String> createToken(@RequestHeader String token, Authentication authResult) {
         String access_token = jwtProvider.createToken(authResult);
         String refresh_token = jwtProvider.createRefreshToken(authResult);
-        return new ResponseEntity<String>(refresh_token, HttpStatus.UPGRADE_REQUIRED);
+        return new ResponseEntity<String>(access_token, HttpStatus.UPGRADE_REQUIRED);
     }
 }
